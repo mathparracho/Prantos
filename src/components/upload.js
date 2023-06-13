@@ -40,16 +40,16 @@ export const Upload = () => {
         reader.onloadend = function () {
           console.log("sending image...");
           axios
-            .post("https://4c08-157-159-39-17.ngrok-free.app/photo", {
+            .post("https://ae7f-157-159-45-70.ngrok-free.app/photo", {
               photo: reader.result,
               tempo: tempo
             })
             .then(() => {
-              axios.get('https://4c08-157-159-39-17.ngrok-free.app/getGmn').then(function(response){
+              axios.get('https://ae7f-157-159-45-70.ngrok-free.app/getGmn').then(function(response){
                   setGuido(response.data);
               });
 
-              axios.get('https://4c08-157-159-39-17.ngrok-free.app/getMid', {
+              axios.get('https://ae7f-157-159-45-70.ngrok-free.app/getMid', {
                 responseType: 'arraybuffer',
               }).then(function(response){
                 let blob = new Blob([response.data], { type: "audio/wav" }),
@@ -69,11 +69,11 @@ export const Upload = () => {
     const downloadFiles = () => {
       var FileSaver = require("file-saver");
       FileSaver.saveAs(
-        "https://4c08-157-159-39-17.ngrok-free.app/getGmn",
+        "https://ae7f-157-159-45-70.ngrok-free.app/getGmn",
         "musicGmn.gmn"
       );
       FileSaver.saveAs(
-        "https://4c08-157-159-39-17.ngrok-free.app/getMid",
+        "https://ae7f-157-159-45-70.ngrok-free.app/getMid",
         "musicWav.wav"
       );
     };
